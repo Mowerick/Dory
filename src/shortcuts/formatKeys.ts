@@ -6,6 +6,10 @@ const KEY_ICONS: Record<string, string> = {
   rarrow: "go-next-symbolic",
   uarrow: "go-up-symbolic",
   darrow: "go-down-symbolic",
+  "+": "list-add-symbolic",
+  plus: "list-add-symbolic",
+  "-": "list-remove-symbolic",
+  minus: "list-remove-symbolic",
 };
 
 export type KeycapPart = { text: string } | { icon: string };

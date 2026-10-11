@@ -148,7 +148,7 @@ To find more:
 Leaving `icon` out or empty gives `input-keyboard-symbolic`. A name your theme does not have is
 drawn as GNOME's "missing image" icon; the settings window marks such names while you type them.
 
-The icons inside keycaps are separate: only the arrow keys get one, as listed under
+The icons inside keycaps are separate: only arrow, plus and minus keys get one, as listed under
 [Format](#format).
 
 ### Format
@@ -199,14 +199,16 @@ Each row has these fields:
 | `"Ctrl+A / Ctrl+E"`                                      | The text form used in the settings window | `Ctrl + A / E`                |
 
 Alternatives that share their modifiers are shortened in the keycap. Any other key name is shown
-as written, except the arrow keys, which are drawn with GNOME's symbolic icons:
+as written, except these, which are drawn with GNOME's symbolic icons:
 
-| Write    | Icon                   |
-| -------- | ---------------------- |
-| `larrow` | `go-previous-symbolic` |
-| `rarrow` | `go-next-symbolic`     |
-| `uarrow` | `go-up-symbolic`       |
-| `darrow` | `go-down-symbolic`     |
+| Write          | Icon                   |
+| -------------- | ---------------------- |
+| `larrow`       | `go-previous-symbolic` |
+| `rarrow`       | `go-next-symbolic`     |
+| `uarrow`       | `go-up-symbolic`       |
+| `darrow`       | `go-down-symbolic`     |
+| `+` or `plus`  | `list-add-symbolic`    |
+| `-` or `minus` | `list-remove-symbolic` |
 
 The built-in list holds GNOME's default bindings and the standard Emacs-style line editing of bash
 and zsh.
