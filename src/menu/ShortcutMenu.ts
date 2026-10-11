@@ -1,9 +1,9 @@
-import { PopupAnimation } from "resource:///org/gnome/shell/ui/boxpointer.js";
 import * as PopupMenu from "resource:///org/gnome/shell/ui/popupMenu.js";
 
 import type { Section } from "../shortcuts/types.js";
 import type { Tooltip } from "../ui/Tooltip.js";
 import { SectionAccordion } from "./SectionAccordion.js";
+import { NO_ANIMATION } from "./noAnimation.js";
 
 export class ShortcutMenu {
   private accordion: SectionAccordion | null = null;
@@ -16,7 +16,7 @@ export class ShortcutMenu {
 
   setSections(sections: Section[]): void {
     // The rows are about to be destroyed.
-    if (this.menu.isOpen) this.menu.close(PopupAnimation.NONE);
+    if (this.menu.isOpen) this.menu.close(NO_ANIMATION);
     this.tooltip.hide();
     this.menu.removeAll();
 

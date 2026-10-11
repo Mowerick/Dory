@@ -1,11 +1,11 @@
 import St from "gi://St";
 
-import { PopupAnimation } from "resource:///org/gnome/shell/ui/boxpointer.js";
 import * as PopupMenu from "resource:///org/gnome/shell/ui/popupMenu.js";
 
 import type { Section } from "../shortcuts/types.js";
 import type { Tooltip } from "../ui/Tooltip.js";
 import { buildRow } from "./row.js";
+import { NO_ANIMATION } from "./noAnimation.js";
 
 export class SectionAccordion {
   readonly items: PopupMenu.PopupSubMenuMenuItem[];
@@ -42,16 +42,16 @@ export class SectionAccordion {
     if (submenu.menu.isOpen) return;
 
     for (const other of this.items) {
-      if (other !== submenu) other.menu.close(PopupAnimation.NONE);
+      if (other !== submenu) other.menu.close(NO_ANIMATION);
     }
-    submenu.menu.open(PopupAnimation.NONE);
+    submenu.menu.open(NO_ANIMATION);
     // open() disables scrolling when the whole menu fits, which would clip at max-height.
     submenu.menu.actor.vscrollbar_policy = St.PolicyType.AUTOMATIC;
     this.open = submenu;
   }
 
   private hide(submenu: PopupMenu.PopupSubMenuMenuItem): void {
-    submenu.menu.close(PopupAnimation.NONE);
+    submenu.menu.close(NO_ANIMATION);
     if (this.open === submenu) this.open = null;
   }
 }

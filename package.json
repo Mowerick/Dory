@@ -8,7 +8,8 @@
     "install-local": "npm run build && rm -rf ~/.local/share/gnome-shell/extensions/dory@mowerick.github.io && mkdir -p ~/.local/share/gnome-shell/extensions/dory@mowerick.github.io && cp -r dist/. ~/.local/share/gnome-shell/extensions/dory@mowerick.github.io/",
     "dev": "npm run install-local && MUTTER_DEBUG_DUMMY_MODE_SPECS=1600x900 dbus-run-session --config-file=./dev/dbus-session.conf gnome-shell --devkit --wayland",
     "lint": "eslint . && prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "pack": "npm run build && gnome-extensions pack dist --force --out-dir=. --extra-source=menu --extra-source=panel --extra-source=prefs --extra-source=shortcuts --extra-source=ui --extra-source=shortcuts.json"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

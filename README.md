@@ -239,7 +239,8 @@ npm run dev
 ```
 
 The shell opens in a 1600×900 window and prints the extension's errors and `console.log` output to
-the terminal. Close the window to stop it. `npm run check` type-checks without building.
+the terminal. Close the window to stop it. `npm run check` type-checks without building, `npm run lint` runs ESLint and Prettier, and
+`npm run pack` builds the zip for extensions.gnome.org.
 
 The extension is written in TypeScript under `src/` and compiled to `dist/`, which is what gets
 installed:
