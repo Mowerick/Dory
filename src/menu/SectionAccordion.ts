@@ -1,5 +1,7 @@
+import Clutter from "gi://Clutter";
 import St from "gi://St";
 
+import { ensureActorVisibleInScrollView } from "resource:///org/gnome/shell/misc/animationUtils.js";
 import * as PopupMenu from "resource:///org/gnome/shell/ui/popupMenu.js";
 
 import type { Section } from "../shortcuts/types.js";
@@ -33,8 +35,17 @@ export class SectionAccordion {
       else this.hide(submenu);
     };
 
-    for (const shortcut of section.items)
-      submenu.menu.addMenuItem(buildRow(shortcut, tooltip));
+    for (const shortcut of section.items) {
+      const row = buildRow(shortcut, tooltip);
+      // Scroll arrow-key focus into view; hovering also focuses rows, but must not scroll.
+      row.connect("key-focus-in", () => {
+        // Null when focus moves without an event; the typings miss that.
+        const event = Clutter.get_current_event() as Clutter.Event | null;
+        if (event?.type() === Clutter.EventType.KEY_PRESS)
+          ensureActorVisibleInScrollView(submenu.menu.actor, row);
+      });
+      submenu.menu.addMenuItem(row);
+    }
     return submenu;
   }
 
