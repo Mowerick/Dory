@@ -1,0 +1,241 @@
+[
+  {
+    "title": "GNOME desktop",
+    "icon": "user-desktop-symbolic",
+    "items": [
+      {
+        "keys": ["Super"],
+        "label": "Activities overview",
+        "details": "Shows all windows and workspaces; start typing right away to search for apps, files and settings."
+      },
+      {
+        "keys": ["Super", "A"],
+        "label": "Show all apps",
+        "details": "Opens the app grid."
+      },
+      {
+        "keys": ["Alt", "Tab"],
+        "label": "Switch apps",
+        "details": "Hold Alt and keep pressing Tab to cycle through open apps; Shift goes backwards. Super+Tab does the same."
+      },
+      {
+        "keys": ["Alt", "`"],
+        "label": "Switch windows of the app",
+        "details": "Cycles between windows of the current app. ` is the key above Tab, whatever your layout prints on it."
+      },
+      {
+        "keys": [
+          ["Super", "larrow"],
+          ["Super", "rarrow"]
+        ],
+        "label": "Tile left / right",
+        "details": "Fills the left or right half of the screen with the window; press again to restore it."
+      },
+      {
+        "keys": [
+          ["Super", "uarrow"],
+          ["Super", "darrow"]
+        ],
+        "label": "Maximize / restore",
+        "details": "Maximizes the window, or restores its previous size."
+      },
+      {
+        "keys": ["Super", "H"],
+        "label": "Hide window",
+        "details": "Minimizes the focused window."
+      },
+      {
+        "keys": ["Alt", "F4"],
+        "label": "Close window",
+        "details": "Closes the focused window."
+      },
+      {
+        "keys": [
+          ["Super", "PgUp"],
+          ["Super", "PgDn"]
+        ],
+        "label": "Previous / next workspace",
+        "details": "Switches workspace. Super+Alt+← / → and Ctrl+Alt+← / → do the same."
+      },
+      {
+        "keys": [
+          ["Super", "Shift", "PgUp"],
+          ["Super", "Shift", "PgDn"]
+        ],
+        "label": "Move window to workspace",
+        "details": "Takes the focused window along to the previous or next workspace."
+      },
+      {
+        "keys": ["Super", "Shift", "Arrows"],
+        "label": "Move window to monitor",
+        "details": "Sends the focused window to the monitor in that direction."
+      },
+      {
+        "keys": ["Super", "V"],
+        "label": "Notifications and calendar",
+        "details": "Opens the notification list with the calendar. Super+M does the same."
+      },
+      {
+        "keys": ["Super", "S"],
+        "label": "Quick settings",
+        "details": "Opens the system menu with Wi-Fi, sound, power and the light/dark switch."
+      },
+      {
+        "keys": ["Super", "Space"],
+        "label": "Switch keyboard layout",
+        "details": "Cycles through the configured input sources."
+      },
+      {
+        "keys": ["Super", "L"],
+        "label": "Lock the screen",
+        "details": "Locks the session immediately."
+      },
+      {
+        "keys": ["Alt", "F2"],
+        "label": "Run a command",
+        "details": "Opens a one-line prompt to run a command without a terminal."
+      }
+    ]
+  },
+  {
+    "title": "Screenshots",
+    "icon": "camera-photo-symbolic",
+    "items": [
+      {
+        "keys": ["Print"],
+        "label": "Screenshot tool",
+        "details": "Opens the screenshot tool: pick an area, a window or the whole screen, or switch to recording. Shots land in Pictures/Screenshots and on the clipboard."
+      },
+      {
+        "keys": ["Shift", "Print"],
+        "label": "Whole screen right away",
+        "details": "Takes a screenshot of the whole screen without asking."
+      },
+      {
+        "keys": ["Alt", "Print"],
+        "label": "Focused window right away",
+        "details": "Takes a screenshot of the focused window without asking."
+      },
+      {
+        "keys": ["Ctrl", "Shift", "Alt", "R"],
+        "label": "Record the screen",
+        "details": "Opens the tool in recording mode; the same keys stop the recording. Videos land in Videos/Screencasts."
+      }
+    ]
+  },
+  {
+    "title": "Text in any app",
+    "icon": "document-edit-symbolic",
+    "items": [
+      {
+        "keys": [
+          ["Ctrl", "Z"],
+          ["Ctrl", "Shift", "Z"]
+        ],
+        "label": "Undo / redo",
+        "details": "Works in nearly every text field and editor."
+      },
+      {
+        "keys": [
+          ["Ctrl", "larrow"],
+          ["Ctrl", "rarrow"]
+        ],
+        "label": "Word back / forward",
+        "details": "Moves the cursor a word at a time; add Shift to select while moving."
+      },
+      {
+        "keys": ["Ctrl", "Backspace"],
+        "label": "Delete the previous word",
+        "details": "Deletes back to the start of the word. Ctrl+Delete deletes forwards."
+      },
+      {
+        "keys": [
+          ["Shift", "Home"],
+          ["Shift", "End"]
+        ],
+        "label": "Select to line start / end",
+        "details": "Selects from the cursor to the start or end of the line."
+      },
+      {
+        "keys": ["Ctrl", "."],
+        "label": "Emoji picker",
+        "details": "Opens the emoji chooser in GTK apps. Ctrl+; works too."
+      },
+      {
+        "keys": ["Ctrl", "Shift", "U"],
+        "label": "Type a Unicode character",
+        "details": "Then type the hex code and press Space or Enter: Ctrl+Shift+U 2014 gives an em dash."
+      }
+    ]
+  },
+  {
+    "title": "Shell",
+    "icon": "utilities-terminal-symbolic",
+    "items": [
+      {
+        "keys": ["Ctrl", "R"],
+        "label": "Search command history",
+        "details": "Type part of an old command; Ctrl+R again goes further back, Enter runs it, an arrow key puts it on the line to edit."
+      },
+      {
+        "keys": [
+          ["Ctrl", "A"],
+          ["Ctrl", "E"]
+        ],
+        "label": "Start / end of line",
+        "details": "Moves the cursor to the beginning or end of the line."
+      },
+      {
+        "keys": [
+          ["Alt", "B"],
+          ["Alt", "F"]
+        ],
+        "label": "Word back / forward",
+        "details": "Moves the cursor a word at a time."
+      },
+      {
+        "keys": ["Ctrl", "W"],
+        "label": "Delete the previous word",
+        "details": "Deletes the word left of the cursor; Ctrl+Y pastes it back."
+      },
+      {
+        "keys": ["Ctrl", "K"],
+        "label": "Delete to end of line",
+        "details": "Deletes from the cursor to the end of the line; Ctrl+Y pastes it back."
+      },
+      {
+        "keys": ["Ctrl", "Y"],
+        "label": "Paste what was just deleted",
+        "details": "Pastes the text last deleted with Ctrl+W, Ctrl+K or Ctrl+U."
+      },
+      {
+        "keys": ["Alt", "."],
+        "label": "Previous command's last argument",
+        "details": "Inserts the last argument of the previous command; press again to go further back. Example: mkdir foo, then cd Alt+."
+      },
+      {
+        "keys": ["Ctrl", "_"],
+        "label": "Undo",
+        "details": "Undoes the last edit to the command line."
+      },
+      {
+        "keys": ["Ctrl", "L"],
+        "label": "Clear the screen",
+        "details": "Clears the terminal and keeps the line being typed."
+      },
+      {
+        "keys": [
+          ["Ctrl", "C"],
+          ["Ctrl", "D"]
+        ],
+        "label": "Cancel / end input",
+        "details": "Ctrl+C stops the running command or drops the line. Ctrl+D on an empty line ends input, which closes the shell."
+      },
+      {
+        "keys": ["Ctrl", "Z"],
+        "label": "Pause the running command",
+        "details": "Suspends it and returns to the prompt; fg brings it back, bg lets it continue in the background."
+      }
+    ]
+  }
+]

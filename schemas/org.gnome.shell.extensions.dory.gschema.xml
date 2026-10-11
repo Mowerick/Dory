@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.dory" path="/org/gnome/shell/extensions/dory/">
+    <key name="toggle-menu" type="as">
+      <default><![CDATA[['<Control><Alt><Super>s']]]></default>
+      <summary>Open or close Dory</summary>
+    </key>
+    <key name="show-default-shortcuts" type="b">
+      <default>true</default>
+      <summary>Show the built-in shortcuts</summary>
+      <description>When false, the menu lists only the sections in custom-shortcuts.</description>
+    </key>
+    <key name="custom-shortcuts" type="s">
+      <default>'[]'</default>
+      <summary>Your own shortcut sections</summary>
+      <description>A JSON list of sections in the same format as the shipped shortcuts.json. They are listed after the built-in ones. Entries that cannot be read are skipped.</description>
+    </key>
+  </schema>
+</schemalist>

@@ -1,0 +1,27 @@
+.dory-menu {
+  width: 30em;
+}
+
+.dory-section {
+  max-height: 22em;
+}
+
+.dory-keys {
+  background-color: rgba(127, 127, 127, 0.22);
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-left: 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.dory-key-icon {
+  icon-size: 1em;
+}
+
+.dash-label.dory-tooltip {
+  max-width: 22em;
+  padding: 8px 12px;
+  border-radius: 12px;
+  text-align: left;
+}
