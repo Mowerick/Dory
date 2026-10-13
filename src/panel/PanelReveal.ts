@@ -41,4 +41,16 @@ export class PanelReveal {
       },
     });
   }
+
+  // On disable, put the bar back at once, even under the pointer.
+  reset(): void {
+    if (!this.hidden) return;
+
+    const { y, visible } = this.hidden;
+    this.hidden = null;
+    const panelBox = Main.layoutManager.panelBox;
+    panelBox.remove_all_transitions();
+    panelBox.y = y;
+    panelBox.visible = visible;
+  }
 }

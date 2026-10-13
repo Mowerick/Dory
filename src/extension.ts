@@ -85,13 +85,13 @@ export default class DoryExtension extends Extension {
     for (const id of this.settingsChangedIds) this.settings?.disconnect(id);
     this.settingsChangedIds = [];
     this.settings = null;
+    this.panelReveal?.reset();
+    this.panelReveal = null;
     // Destroying the button closes the menu, which still uses the tooltip.
     this.button?.destroy();
     this.button = null;
     this.tooltip?.destroy();
     this.tooltip = null;
-    this.panelReveal?.restore();
-    this.panelReveal = null;
   }
 }
 
