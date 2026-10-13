@@ -28,6 +28,8 @@ Shell extension that keeps them one click away in the top bar.
 
 Requires GNOME Shell 49 or 50.
 
+![Dory's menu open in the top bar, with the fzf section expanded](docs/screenshot.png)
+
 ## Install
 
 ### Nix flake
