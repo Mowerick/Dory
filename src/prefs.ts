@@ -7,7 +7,7 @@ import { loadDefaultSections } from "./shortcuts/load.js";
 
 export default class DoryPreferences extends ExtensionPreferences {
   // GNOME Shell 49 and 50 still pass an Adw.PreferencesWindow.
-  override fillPreferencesWindow(
+  override async fillPreferencesWindow(
     // eslint-disable-next-line @typescript-eslint/no-deprecated
     window: Adw.PreferencesWindow,
   ): Promise<void> {
@@ -17,7 +17,7 @@ export default class DoryPreferences extends ExtensionPreferences {
       window,
       settings,
       custom,
-      loadDefaultSections(this.dir),
+      await loadDefaultSections(this.dir),
     );
     // eslint-disable-next-line @typescript-eslint/no-deprecated
     window.add(page.page);
@@ -29,6 +29,5 @@ export default class DoryPreferences extends ExtensionPreferences {
       page.destroy();
       return false;
     });
-    return Promise.resolve();
   }
 }

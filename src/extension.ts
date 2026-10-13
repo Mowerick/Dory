@@ -1,4 +1,4 @@
-import type Gio from "gi://Gio";
+import Gio from "gi://Gio";
 import Meta from "gi://Meta";
 import Shell from "gi://Shell";
 import St from "gi://St";
@@ -18,13 +18,14 @@ import { Tooltip } from "./ui/Tooltip.js";
 export default class DoryExtension extends Extension {
   private settings: Gio.Settings | null = null;
   private settingsChangedIds: number[] = [];
+  private loading: Gio.Cancellable | null = null;
   private button: PanelMenu.Button | null = null;
+  private menuOpenStateId = 0;
   private tooltip: Tooltip | null = null;
   private panelReveal: PanelReveal | null = null;
 
   override enable(): void {
     const settings = this.getSettings();
-    const defaults = loadDefaultSections(this.dir);
     const tooltip = new Tooltip();
     const panelReveal = new PanelReveal();
 
@@ -41,15 +42,22 @@ export default class DoryExtension extends Extension {
     const shortcutMenu = new ShortcutMenu(menu, tooltip, () =>
       this.openPreferences(),
     );
+    let defaults: Section[] = [];
     const update = () =>
       shortcutMenu.setSections(activeSections(settings, defaults));
     update();
+    const loading = new Gio.Cancellable();
+    void loadDefaultSections(this.dir, loading).then((sections) => {
+      if (loading.is_cancelled()) return;
+      defaults = sections;
+      update();
+    });
     this.settingsChangedIds = [
       settings.connect("changed::show-default-shortcuts", update),
       settings.connect("changed::custom-shortcuts", update),
     ];
 
-    menu.connect("open-state-changed", (_menu, open) => {
+    this.menuOpenStateId = menu.connect("open-state-changed", (_menu, open) => {
       if (open) {
         shortcutMenu.restore();
       } else {
@@ -75,6 +83,7 @@ export default class DoryExtension extends Extension {
     );
 
     this.settings = settings;
+    this.loading = loading;
     this.button = button;
     this.tooltip = tooltip;
     this.panelReveal = panelReveal;
@@ -85,8 +94,13 @@ export default class DoryExtension extends Extension {
     for (const id of this.settingsChangedIds) this.settings?.disconnect(id);
     this.settingsChangedIds = [];
     this.settings = null;
+    this.loading?.cancel();
+    this.loading = null;
     this.panelReveal?.reset();
     this.panelReveal = null;
+    if (this.menuOpenStateId)
+      this.button?.menu.disconnect(this.menuOpenStateId);
+    this.menuOpenStateId = 0;
     // Destroying the button closes the menu, which still uses the tooltip.
     this.button?.destroy();
     this.button = null;
