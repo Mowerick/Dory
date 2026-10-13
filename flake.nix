@@ -29,6 +29,8 @@
           packages = [
             pkgs.nodejs
             pkgs.glib
+            pkgs.zip
+            pkgs.unzip
           ];
         };
       });
