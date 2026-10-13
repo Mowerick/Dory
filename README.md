@@ -242,7 +242,7 @@ npm run dev
 
 The shell opens in a 1600×900 window and prints the extension's errors and `console.log` output to
 the terminal. Close the window to stop it. `npm run check` type-checks without building, `npm run lint` runs ESLint and Prettier, and
-`npm run pack` builds the zip for extensions.gnome.org.
+`npm run pack` builds the zip for extensions.gnome.org (it needs `zip`, which `nix develop` provides).
 
 The extension is written in TypeScript under `src/` and compiled to `dist/`, which is what gets
 installed:
@@ -256,3 +256,18 @@ installed:
 | `src/shortcuts/`   | The shortcut format: types, validation, keycap formatting; shared by both |
 | `src/ui/`          | The tooltip for cut-off labels                                            |
 | `src/panel/`       | Bringing in an auto-hidden top bar while the menu is open                 |
+
+### Releasing
+
+1. Raise `version-name` in `metadata.json` to the next number, then commit and push to `main`.
+2. Tag that commit with the same number and push the tag:
+
+   ```sh
+   git tag v2 && git push origin v2
+   ```
+
+   GitHub Actions checks and builds it, then publishes a release with the zip attached. The
+   release fails if the tag does not match `version-name` or is not on `main`.
+
+3. Download the zip from the release and upload it at
+   [extensions.gnome.org/upload](https://extensions.gnome.org/upload/), where it waits for review.

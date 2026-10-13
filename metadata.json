@@ -2,6 +2,7 @@
   "uuid": "dory@mowerick.github.io",
   "name": "Dory",
   "description": "Keeps the shortcuts you keep forgetting, built-in ones and your own, in a top-bar menu.",
+  "version-name": "1",
   "shell-version": ["49", "50"],
   "settings-schema": "org.gnome.shell.extensions.dory",
   "url": "https://github.com/Mowerick/Dory"

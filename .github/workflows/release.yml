@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  release:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: scripts/check-release-tag.sh "$GITHUB_REF_NAME"
+      - uses: cachix/install-nix-action@v31
+      - run: nix develop -c npm ci
+      - run: nix develop -c npm run pack
+      - run: nix develop -c scripts/check-zip.sh dory@mowerick.github.io.shell-extension.zip
+      - run: >-
+          gh release create "$GITHUB_REF_NAME"
+          dory@mowerick.github.io.shell-extension.zip
+          --verify-tag --generate-notes --title "Dory $GITHUB_REF_NAME"
+        env:
+          GH_TOKEN: ${{ github.token }}
